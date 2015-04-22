@@ -93,11 +93,12 @@ if [ "$RLWRAP" = "yes" ]; then
 fi
 
 # download and unpack datomic
+echo "-----> Installing datomic"
 DATOMIC_URL="https://my.datomic.com/downloads/pro/$DATOMIC_VERSION"
 DATOMIC_PATH=$BUILD_DIR"/datomic"
 echo "       Downloading: datomic-$DATOMIC_VERSION"
-wget --http-user=$DATOMIC_USERNAME --http-password=$DATOMIC_PASSWORD https://my.datomic.com/repo/com/datomic/datomic-pro/$DATOMIC_VERSION/datomic-pro-$DATOMIC_VERSION.zip -O datomic-pro-$DATOMIC_VERSION.zip -q
-unzip datomic-pro-$DATOMIC_VERSION.zip -q -d datomic
+wget --http-user=$DATOMIC_USERNAME --http-password=$DATOMIC_PASSWORD https://my.datomic.com/repo/com/datomic/datomic-pro/$DATOMIC_VERSION/datomic-pro-$DATOMIC_VERSION.zip -O datomic-pro-$DATOMIC_VERSION.zip
+unzip datomic-pro-$DATOMIC_VERSION.zip -d datomic
 rm datomic-pro-$DATOMIC_VERSION.zip
 
 # install lein script
