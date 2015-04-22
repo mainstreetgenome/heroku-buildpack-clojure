@@ -92,6 +92,14 @@ if [ "$RLWRAP" = "yes" ]; then
   chmod +x $RLWRAP_BIN_PATH
 fi
 
+# download and unpack datomic
+DATOMIC_URL="https://my.datomic.com/downloads/pro/$DATOMIC_VERSION"
+DATOMIC_PATH=$BUILD_DIR"/datomic"
+echo "       Downloading: datomic-$DATOMIC_VERSION"
+wget --http-user=$DATOMIC_USERNAME --http-password=$DATOMIC_PASSWORD https://my.datomic.com/repo/com/datomic/datomic-pro/$DATOMIC_VERSION/datomic-pro-$DATOMIC_VERSION.zip -O datomic-pro-$DATOMIC_VERSION.zip -q
+unzip datomic-pro-$DATOMIC_VERSION.zip -q -d datomic
+rm datomic-pro-$DATOMIC_VERSION.zip
+
 # install lein script
 LEIN_BIN_PATH=$BUILD_DIR"/.lein/bin/lein"
 echo "       Writing: lein script"
