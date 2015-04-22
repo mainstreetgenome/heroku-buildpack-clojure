@@ -100,6 +100,8 @@ echo "       Downloading: datomic-$DATOMIC_VERSION"
 wget --http-user=$DATOMIC_USERNAME --http-password=$DATOMIC_PASSWORD https://my.datomic.com/repo/com/datomic/datomic-pro/$DATOMIC_VERSION/datomic-pro-$DATOMIC_VERSION.zip -O datomic-pro-$DATOMIC_VERSION.zip
 unzip datomic-pro-$DATOMIC_VERSION.zip -d datomic
 rm datomic-pro-$DATOMIC_VERSION.zip
+mkdir -p $(dirname $DATOMIC_PATH)
+mv datomic $DATOMIC_PATH
 
 # install lein script
 LEIN_BIN_PATH=$BUILD_DIR"/.lein/bin/lein"
