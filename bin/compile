@@ -97,9 +97,9 @@ echo "-----> Installing datomic"
 DATOMIC_URL="https://my.datomic.com/downloads/pro/$DATOMIC_VERSION"
 DATOMIC_PATH=$BUILD_DIR"/datomic"
 echo "       Downloading: datomic-$DATOMIC_VERSION"
-wget --http-user=$DATOMIC_USERNAME --http-password=$DATOMIC_PASSWORD -q https://my.datomic.com/repo/com/datomic/datomic-pro/$DATOMIC_VERSION/datomic-pro-$DATOMIC_VERSION.zip -O datomic-pro-$DATOMIC_VERSION.zip
-unzip -q datomic-pro-$DATOMIC_VERSION.zip
-rm datomic-pro-$DATOMIC_VERSION.zip
+wget --http-user=$DATOMIC_USERNAME --http-password=$DATOMIC_PASSWORD https://my.datomic.com/repo/com/datomic/datomic-pro/$DATOMIC_VERSION/datomic-pro-$DATOMIC_VERSION.zip -O datomic.zip
+unzip datomic.zip
+rm datomic.zip
 mkdir -p $(dirname $DATOMIC_PATH)
 mv datomic-pro-$DATOMIC_VERSION"/*" $DATOMIC_PATH
 
